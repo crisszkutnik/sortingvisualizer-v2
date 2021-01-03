@@ -1,5 +1,4 @@
-import { couldStartTrivia } from "typescript";
-import { Bar } from "./models"
+import { Bar, Movement } from "./models"
 
 let colWidth = 12;
 let canvas = document.querySelector("canvas") as HTMLCanvasElement;
@@ -20,9 +19,21 @@ function drawArray(arr:Bar[]) {
     ctx.closePath();
 }
 
+function drawMovement(mov:Movement) {
+    ctx.beginPath();
+    ctx.clearRect(mov.center1, 650 - mov.value1, colWidth, mov.value1);
+    ctx.clearRect(mov.center2, 650 - mov.value2, colWidth, mov.value2);
+    ctx.rect(mov.center2, 650 - mov.value1, colWidth, mov.value1);
+    ctx.rect(mov.center1, 650 - mov.value2, colWidth, mov.value2);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+}
+
 export {
     drawArray,
     clearCanvas,
+    drawMovement,
     ctx,
     colWidth
 }

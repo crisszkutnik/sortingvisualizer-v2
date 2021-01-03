@@ -5,10 +5,17 @@ interface Bar {
     center: number;
 };
 
-abstract class SortingMethod {
-    abstract sort(arr:Bar[]):Bar[];
+interface Movement {
+    value1: number;
+    center1: number;
+    value2: number;
+    center2: number;
+}
 
-    visualCompare(e1:Bar, e2:Bar) {
+abstract class SortingMethod {
+    abstract sort(arr:Bar[]):[Bar[], Movement[]];
+
+    visualCompareOn(e1:Bar, e2:Bar) {
         ctx.beginPath();
         ctx.fillStyle = "green";
         ctx.fillRect(e1.center, 650 - e1.value, colWidth, e1.value);
@@ -22,5 +29,6 @@ abstract class SortingMethod {
 
 export {
     Bar,
-    SortingMethod
+    SortingMethod,
+    Movement
 };
