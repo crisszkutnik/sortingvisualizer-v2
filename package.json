@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify ./ts/index.ts -p [ tsify --noImplicitAny ] > bundle.js"
+    "build": "browserify ./ts/index.ts -p [ tsify --noImplicitAny ] > bundle.js && sass sass"
   },
   "repository": {
     "type": "git",

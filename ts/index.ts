@@ -1,4 +1,12 @@
 import bubbleSort from "./sorting/bubbleSort"
+import { Bar } from "./models"
+import { createArray } from "./helpers"
+import { drawArray } from "./canvasHelpers";
 
-console.log("hola");
-console.log(bubbleSort.sort([5,3,22,1,32,0,7,55]));
+let arr:Bar[] = createArray(25);
+drawArray(arr);
+
+document.querySelector("#newArr")?.addEventListener("click", () => {
+    arr = createArray(25);
+    drawArray(arr);
+})
