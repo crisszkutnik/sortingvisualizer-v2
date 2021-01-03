@@ -5,15 +5,26 @@ import { drawArray } from "./canvasHelpers";
 import insertionSort from "./sortingMethods/insertionSort";
 
 let arr:Bar[] = createArray(25);
+let sortingMethod = bubbleSort;
 drawArray(arr);
-console.log(insertionSort.sort(arr));
+
+let selector = document.querySelector("#sortingSelect") as HTMLSelectElement;
+selector?.addEventListener("change", () => {
+    if(selector.value === 'bubble')
+        sortingMethod = bubbleSort;
+    else if(selector.value == 'insertion') {
+        sortingMethod = insertionSort;
+    }
+})
 
 document.querySelector("#newArr")?.addEventListener("click", () => {
+    sortingMethod.clearActions();
     arr = createArray(25);
     drawArray(arr);
 })
 
 document.querySelector("#sortNow")?.addEventListener("click", () => {
-    arr = insertionSort.sort(arr);
-    insertionSort.drawMovements();
+    selector.disabled = true;
+    arr = sortingMethod.sort(arr);
+    sortingMethod.drawMovements();
 })

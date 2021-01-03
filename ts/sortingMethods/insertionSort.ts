@@ -23,7 +23,7 @@ class InsertionSort extends SortingMethod {
                 this.movements.push(mov);
                 j--;
             }
-            let mov = generateMov(arr, j);
+            let mov = generateMov(arr, j + 1);
             mov.type = movType.comparison;
             this.movements.push(mov);
         }

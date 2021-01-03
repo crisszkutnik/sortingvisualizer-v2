@@ -21,36 +21,53 @@ interface Movement {
 
 abstract class SortingMethod {
     movements: Movement[] = [];
+    interval: number = 0;
 
     abstract sort(arr: Bar[]): Bar[];
+
+    enableSelector() {
+        let selector = document.querySelector("#sortingSelect") as HTMLSelectElement;
+        selector.disabled = false;
+    }
+
+    clearActions() {
+        this.movements = [];
+        clearInterval(this.interval);
+        this.enableSelector();
+    }
 
     drawMovements() {
         let arr = this.movements;
         let i = 0;
-
-        let int = setInterval(() => {
-            let colour = "white";
-            let func = movType.comparison === arr[i].type ? this.drawComparison : this.drawSwap;
-
-            if(!arr[i].reset) {
-                colour = movType.comparison === arr[i].type ? "red" : "green";
-            }
-
-            func(arr[i], colour);
-
-            if(!arr[i].reset)
-                arr[i].reset = true;
-            else
-                i++;
-
-            if(i === arr.length)
-                clearInterval(int);
-
-        }, 25);
         this.movements = [];
+
+        new Promise<void>((resolve) => {
+            this.interval = setInterval(() => {
+                let colour = "white";
+                let func = movType.comparison === arr[i].type ? this.drawComparison : this.drawSwap;
+
+                if (!arr[i].reset) {
+                    colour = movType.comparison === arr[i].type ? "red" : "green";
+                }
+
+                func(arr[i], colour);
+
+                if (!arr[i].reset)
+                    arr[i].reset = true;
+                else
+                    i++;
+
+                if (i === arr.length) {
+                    clearInterval(this.interval);
+                    resolve();
+                }
+
+            }, 25)
+        })
+        .then(this.enableSelector)
     }
 
-    drawComparison(mov:Movement, colour:string) {
+    private drawComparison(mov: Movement, colour: string) {
         ctx.beginPath();
         ctx.rect(mov.center1, 650 - mov.value1, colWidth, mov.value1);
         ctx.rect(mov.center2, 650 - mov.value2, colWidth, mov.value2);
@@ -59,7 +76,7 @@ abstract class SortingMethod {
         ctx.closePath();
     }
 
-    drawSwap(mov: Movement, colour:string) {
+    private drawSwap(mov: Movement, colour: string) {
         ctx.beginPath();
         ctx.clearRect(mov.center1, 650 - mov.value1, colWidth, mov.value1);
         ctx.clearRect(mov.center2, 650 - mov.value2, colWidth, mov.value2);
