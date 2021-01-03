@@ -1,20 +1,13 @@
 import bubbleSort from "./sortingMethods/bubbleSort"
-import { Bar, Movement } from "./models"
+import { Bar } from "./models"
 import { createArray } from "./helpers"
-import { drawArray, drawMovement } from "./canvasHelpers";
+import { drawArray } from "./canvasHelpers";
 
-let movements:Movement[] = [];
 let arr:Bar[] = createArray(25);
 drawArray(arr);
-[arr, movements] = bubbleSort.sort(arr);
-console.log(movements);
+arr = bubbleSort.sort(arr);
 
-let i = 0;
-
-setInterval(() => {
-    drawMovement(movements[i]);
-    i++;
-}, 500);
+bubbleSort.drawMovements();
 
 document.querySelector("#newArr")?.addEventListener("click", () => {
     arr = createArray(25);
