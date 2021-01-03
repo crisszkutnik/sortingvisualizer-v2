@@ -46,7 +46,7 @@ abstract class SortingMethod {
             if(i === arr.length)
                 clearInterval(int);
 
-        }, 20);
+        }, 25);
         this.movements = [];
     }
 

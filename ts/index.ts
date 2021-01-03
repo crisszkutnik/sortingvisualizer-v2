@@ -5,11 +5,13 @@ import { drawArray } from "./canvasHelpers";
 
 let arr:Bar[] = createArray(25);
 drawArray(arr);
-arr = bubbleSort.sort(arr);
-
-bubbleSort.drawMovements();
 
 document.querySelector("#newArr")?.addEventListener("click", () => {
     arr = createArray(25);
     drawArray(arr);
+})
+
+document.querySelector("#sortNow")?.addEventListener("click", () => {
+    arr = bubbleSort.sort(arr);
+    bubbleSort.drawMovements();
 })
