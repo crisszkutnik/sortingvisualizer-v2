@@ -18,6 +18,15 @@ function createArray(amount:number):Bar[] {
     return ret;
 }
 
+let alpha = 0.85;
+
+let colours = {
+    green: `rgba(58, 194, 60, ${alpha})`,
+    white: `rgba(255, 255, 255, ${alpha})`,
+    red:`rgba(235, 68, 68, ${alpha})`
+}
+
 export {
-    createArray
+    createArray,
+    colours
 };

@@ -1,3 +1,4 @@
+import { colours } from "./helpers";
 import { Bar } from "./models"
 
 let colWidth = 12;
@@ -14,7 +15,7 @@ function drawArray(arr:Bar[]) {
     arr.forEach(e => {
         ctx.rect(e.center, 650 - e.value, colWidth, e.value);
     })
-    ctx.fillStyle = "white";
+    ctx.fillStyle = colours.white;
     ctx.fill();
     ctx.closePath();
 }

@@ -1,4 +1,5 @@
 import { ctx, colWidth } from "./canvasHelpers";
+import { colours } from "./helpers";
 
 interface Bar {
     value: number;
@@ -43,11 +44,11 @@ abstract class SortingMethod {
 
         new Promise<void>((resolve) => {
             this.interval = setInterval(() => {
-                let colour = "white";
+                let colour = colours.white;
                 let func = movType.comparison === arr[i].type ? this.drawComparison : this.drawSwap;
 
                 if (!arr[i].reset) {
-                    colour = movType.comparison === arr[i].type ? "red" : "green";
+                    colour = movType.comparison === arr[i].type ? colours.red : colours.green;
                 }
 
                 func(arr[i], colour);
@@ -69,6 +70,8 @@ abstract class SortingMethod {
 
     private drawComparison(mov: Movement, colour: string) {
         ctx.beginPath();
+        ctx.clearRect(mov.center1, 0, colWidth, 650);
+        ctx.clearRect(mov.center2, 0, colWidth, 650);
         ctx.rect(mov.center1, 650 - mov.value1, colWidth, mov.value1);
         ctx.rect(mov.center2, 650 - mov.value2, colWidth, mov.value2);
         ctx.fillStyle = colour;
@@ -78,8 +81,8 @@ abstract class SortingMethod {
 
     private drawSwap(mov: Movement, colour: string) {
         ctx.beginPath();
-        ctx.clearRect(mov.center1, 650 - mov.value1, colWidth, mov.value1);
-        ctx.clearRect(mov.center2, 650 - mov.value2, colWidth, mov.value2);
+        ctx.clearRect(mov.center1, 0, colWidth, 650);
+        ctx.clearRect(mov.center2, 0, colWidth, 650);
         ctx.rect(mov.center2, 650 - mov.value1, colWidth, mov.value1);
         ctx.fillStyle = colour;
         ctx.rect(mov.center1, 650 - mov.value2, colWidth, mov.value2);

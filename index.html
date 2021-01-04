@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="./sass/main.css" />
-    </head>
-    <body>
-        <nav>
-            <select id="sortingSelect">
-                <option value='bubble'>Bubble sort</option>
-                <option value='insertion'>Insertion sort</option>
-            </select>
-            <button id='newArr'>Generate new array</button>
-            <button id='sortNow'>Sort</button>
-        </nav>
-        <div id='content'>
-            <canvas width="1400" height="650"></canvas>
-        </div>
-    </body>
-    <script src="bundle.js"></script>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./sass/main.css" />
+	</head>
+	<body>
+		<nav>
+			<select id="sortingSelect">
+				<option value="bubble">Bubble sort</option>
+				<option value="insertion">Insertion sort</option>
+			</select>
+			<div id="arrSize">
+				<p>Array size</p>
+				<div>
+                    <input type="range" min="2" max="50" value="25" id="arrSlider" />
+                    <span id='arrNumber'>25</span>
+				</div>
+			</div>
+
+			<button id="sortNow">Sort</button>
+		</nav>
+		<div id="content">
+			<canvas width="1400" height="650"></canvas>
+		</div>
+	</body>
+	<script src="bundle.js"></script>
 </html>

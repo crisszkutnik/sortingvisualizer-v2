@@ -17,10 +17,20 @@ selector?.addEventListener("change", () => {
     }
 })
 
-document.querySelector("#newArr")?.addEventListener("click", () => {
+/*document.querySelector("#newArr")?.addEventListener("click", () => {
     sortingMethod.clearActions();
     arr = createArray(25);
     drawArray(arr);
+})*/
+
+let slider = document.querySelector("#arrSlider") as HTMLInputElement;
+slider.addEventListener("input", () => {
+    let val = Number(slider.value);
+    sortingMethod.clearActions();
+    arr = createArray(val);
+    drawArray(arr);
+    let span = document.querySelector("#arrNumber") as HTMLElement;
+    span.innerHTML = "" + val;
 })
 
 document.querySelector("#sortNow")?.addEventListener("click", () => {
