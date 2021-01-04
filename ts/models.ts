@@ -28,7 +28,9 @@ abstract class SortingMethod {
 
     enableSelector() {
         let selector = document.querySelector("#sortingSelect") as HTMLSelectElement;
+        let speedSelector = document.querySelector("#speedSlider") as HTMLInputElement;
         selector.disabled = false;
+        speedSelector.disabled = false;
     }
 
     clearActions() {
@@ -37,10 +39,12 @@ abstract class SortingMethod {
         this.enableSelector();
     }
 
-    drawMovements() {
+    drawMovements(speed:number) {
         let arr = this.movements;
         let i = 0;
         this.movements = [];
+
+        console.log(speed);
 
         new Promise<void>((resolve) => {
             this.interval = setInterval(() => {
@@ -63,7 +67,7 @@ abstract class SortingMethod {
                     resolve();
                 }
 
-            }, 25)
+            }, speed)
         })
         .then(this.enableSelector)
     }

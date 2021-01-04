@@ -5,6 +5,7 @@ import { drawArray } from "./canvasHelpers";
 import insertionSort from "./sortingMethods/insertionSort";
 
 let arr:Bar[] = createArray(25);
+let sortingSpeed = 25;
 let sortingMethod = bubbleSort;
 drawArray(arr);
 
@@ -23,6 +24,14 @@ selector?.addEventListener("change", () => {
     drawArray(arr);
 })*/
 
+let speedSlider = document.querySelector("#speedSlider") as HTMLInputElement;
+speedSlider.addEventListener("input", () => {
+    let val = Number(speedSlider.value);
+    let span = document.querySelector("#speedNumber") as HTMLElement;
+    sortingSpeed = val;
+    span.innerHTML = "" + val;
+})
+
 let slider = document.querySelector("#arrSlider") as HTMLInputElement;
 slider.addEventListener("input", () => {
     let val = Number(slider.value);
@@ -35,6 +44,7 @@ slider.addEventListener("input", () => {
 
 document.querySelector("#sortNow")?.addEventListener("click", () => {
     selector.disabled = true;
+    speedSlider.disabled = true;
     arr = sortingMethod.sort(arr);
-    sortingMethod.drawMovements();
+    sortingMethod.drawMovements(sortingSpeed);
 })
