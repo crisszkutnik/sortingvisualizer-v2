@@ -5,7 +5,7 @@ function createArray(amount:number):Bar[] {
     let ret = [];
 
     // Half of canvas width
-    let bias = (1400 / 2) - Math.ceil(amount / 2) * 15;
+    let bias = (1400 / 2) - Math.ceil(amount / 2) * (colWidth + 10);
 
     for(let i = 0; i < amount; i++)
         ret.push(
