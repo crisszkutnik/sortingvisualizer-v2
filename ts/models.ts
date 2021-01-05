@@ -1,4 +1,5 @@
 import { ctx, colWidth } from "./canvasHelpers";
+import { accessHelper, compHelper, iterationHelper } from "./dataHelpers";
 import { colours } from "./helpers";
 
 interface Bar {
@@ -17,7 +18,10 @@ interface Movement {
     center2: number,
     value2: number,
     type: movType, // Swap movement or comparison movement
-    reset: boolean // Movement has been resetted
+    reset: boolean // Movement has been resetted,
+    comp: number,
+    access: number,
+    iteration: number
 }
 
 abstract class SortingMethod {
@@ -44,8 +48,6 @@ abstract class SortingMethod {
         let i = 0;
         this.movements = [];
 
-        console.log(speed);
-
         new Promise<void>((resolve) => {
             this.interval = setInterval(() => {
                 let colour = colours.white;
@@ -53,6 +55,9 @@ abstract class SortingMethod {
 
                 if (!arr[i].reset) {
                     colour = movType.comparison === arr[i].type ? colours.red : colours.green;
+                    accessHelper.addNumber(arr[i].access);
+                    compHelper.addNumber(arr[i].comp);
+                    iterationHelper.addNumber(arr[i].iteration);
                 }
 
                 func(arr[i], colour);

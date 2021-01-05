@@ -18,18 +18,12 @@ selector?.addEventListener("change", () => {
     }
 })
 
-/*document.querySelector("#newArr")?.addEventListener("click", () => {
-    sortingMethod.clearActions();
-    arr = createArray(25);
-    drawArray(arr);
-})*/
-
 let speedSlider = document.querySelector("#speedSlider") as HTMLInputElement;
 speedSlider.addEventListener("input", () => {
     let val = Number(speedSlider.value);
     let span = document.querySelector("#speedNumber") as HTMLElement;
     sortingSpeed = val;
-    span.innerHTML = "" + val;
+    span.innerHTML = val + "ms";
 })
 
 let slider = document.querySelector("#arrSlider") as HTMLInputElement;

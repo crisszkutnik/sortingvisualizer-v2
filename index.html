@@ -26,13 +26,27 @@
 						value="20"
 						id="speedSlider"
 					/>
-					<span id="speedNumber">20</span>
+					<span id="speedNumber">20ms</span>
 				</div>
 			</div>
 			<button id="sortNow">Sort</button>
 		</nav>
 		<div id="content">
-			<canvas width="1400" height="650"></canvas>
+            <canvas width="1400" height="650"></canvas>
+            <div id='sortingData'>
+                <table>
+                    <tr>
+                        <th>Comparisons</th>
+                        <th>Array access</th>
+                        <th>Iterations</th>
+                    </tr>
+                    <tr>
+                        <td id="compData">0</td>
+                        <td id="accessData">0</td>
+                        <td id="iterationData">0</td>
+                    </tr>
+                </table>
+            </div>
 		</div>
 	</body>
 	<script src="bundle.js"></script>
