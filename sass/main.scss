@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
 }
 
 $button-color: #e84545;
@@ -46,6 +47,20 @@ nav {
 
 #content {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding-top: 5vh;
+
+	table {
+		color: white;
+		background: #1c1e31;
+		border-radius: 5px;
+		margin-top: 2vh;
+		
+		th, td {
+			padding: 20px;
+			text-align: center;
+		}
+	}
 }
