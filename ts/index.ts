@@ -26,6 +26,9 @@ speedSlider.addEventListener("input", () => {
     span.innerHTML = val + "ms";
 })
 
+
+
+
 let slider = document.querySelector("#arrSlider") as HTMLInputElement;
 slider.addEventListener("input", () => {
     let val = Number(slider.value);
@@ -34,6 +37,12 @@ slider.addEventListener("input", () => {
     drawArray(arr);
     let span = document.querySelector("#arrNumber") as HTMLElement;
     span.innerHTML = "" + val;
+})
+
+document.querySelector("#newArr")?.addEventListener("click", () => {
+    sortingMethod.clearActions();
+    arr = createArray(Number(slider.value));
+    drawArray(arr);
 })
 
 document.querySelector("#sortNow")?.addEventListener("click", () => {

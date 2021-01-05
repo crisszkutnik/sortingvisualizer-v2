@@ -1,3 +1,4 @@
+import { clearHelpers } from "../dataHelpers";
 import { SortingMethod, Bar, movType, Movement } from "../models";
 
 const generateMov = (arr: Bar[], index: number): Movement => {
@@ -16,6 +17,8 @@ const generateMov = (arr: Bar[], index: number): Movement => {
 
 class InsertionSort extends SortingMethod {
     sort(arr: Bar[]): Bar[] {
+        clearHelpers();
+        this.movements = [];
         for (let i = 1; i < arr.length; i++) {
             let j = i - 1;
 
