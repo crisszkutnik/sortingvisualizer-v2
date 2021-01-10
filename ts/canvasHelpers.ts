@@ -57,5 +57,6 @@ export {
     drawArray,
     clearCanvas,
     ctx,
+    canvas,
     colWidth
 }

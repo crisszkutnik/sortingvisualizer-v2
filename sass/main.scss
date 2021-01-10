@@ -1,34 +1,50 @@
+@import "variables.scss";
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Raleway', sans-serif;
+	font-family: "Raleway", sans-serif;
 }
 
-$button-color: #e84545;
-
 body {
-	background: #2b2e4a;
+	background: $bg-color;
 }
 
 nav {
-	background: #53354a;
+	background: $nav-color;
 	height: 50px;
 	display: flex;
 	align-items: center;
 	padding-left: 5%;
+	width: 100vw;
+	overflow: hidden;
 
-	button, select {
+	button,
+	select {
 		border: none;
 		background: $button-color;
-		padding: 5px;
+		box-sizing: content-box;
+		padding: 10px 15px;
 		margin-left: 1vw;
 		color: white;
-		font-size: 1em;
+		font-size: 16px;
 		cursor: pointer;
 	}
 
-	#arrSize, #sortSpeed {
+	#dropdown {
+		display: flex;
+
+		.slider_and_text {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 5px;
+		}
+	}
+
+	#arrSize,
+	#sortSpeed {
 		color: white;
 		display: flex;
 		flex-direction: column;
@@ -51,14 +67,16 @@ nav {
 	justify-content: center;
 	align-items: center;
 	padding-top: 5vh;
+	width: 100vw;
 
 	table {
 		color: white;
-		background: #1c1e31;
+		background: $aux-color;
 		border-radius: 5px;
 		margin-top: 2vh;
-		
-		th, td {
+
+		th,
+		td {
 			padding: 20px;
 			text-align: center;
 		}

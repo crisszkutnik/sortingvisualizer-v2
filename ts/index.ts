@@ -3,6 +3,13 @@ import { Bar } from "./models"
 import { createArray } from "./helpers"
 import { drawArray } from "./canvasHelpers";
 import insertionSort from "./sortingMethods/insertionSort";
+import { resizeCanvas } from "./responsive";
+
+/* Canvas resize setup */
+
+resizeCanvas();
+
+/* End canvas resize */
 
 let arr:Bar[] = createArray(25);
 let sortingSpeed = 25;
@@ -25,8 +32,6 @@ speedSlider.addEventListener("input", () => {
     sortingSpeed = val;
     span.innerHTML = val + "ms";
 })
-
-
 
 
 let slider = document.querySelector("#arrSlider") as HTMLInputElement;
