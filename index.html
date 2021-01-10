@@ -1,77 +1,73 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Sorting visualizer</title>
-		<meta name="viewport" content="width=device-width" />
-		<script
-			src="https://kit.fontawesome.com/0d6d078f29.js"
-			crossorigin="anonymous"
-		></script>
-		<link rel="icon" href="./misc/favicon.png" />
-		<link rel="stylesheet" type="text/css" href="./sass/main.css" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;800&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" type="text/css" href="./sass/range.css" />
-		<link rel="stylesheet" type="text/css" href="./sass/responsive.css" />
-	</head>
-	<body>
-		<nav>
-			<i class="fas fa-bars"></i>
-			<div id="dropdown" class="hideNav">
-				<select id="sortingSelect">
-					<option value="bubble">Bubble sort</option>
-					<option value="insertion">Insertion sort</option>
-				</select>
-				<button id="newArr">Generate new array</button>
-				<div id="arrSize">
-					<p>Array size</p>
-					<div class="slider_and_text">
-						<input
-							type="range"
-							min="2"
-							max="50"
-							value="25"
-							id="arrSlider"
-						/>
-						<span id="arrNumber">25</span>
-					</div>
-				</div>
-				<div id="sortSpeed">
-					<p>Sorting speed</p>
-					<div class="slider_and_text">
-						<input
-							type="range"
-							min="10"
-							max="200"
-							value="20"
-							id="speedSlider"
-						/>
-						<span id="speedNumber">20ms</span>
-					</div>
-				</div>
-			</div>
-			<button id="sortNow">Sort</button>
-		</nav>
-		<div id="content">
-			<canvas width="1400" height="650"></canvas>
-			<div id="sortingData">
-				<table>
-					<tr>
-						<th>Comparisons</th>
-						<th>Array access</th>
-						<th>Iterations</th>
-					</tr>
-					<tr>
-						<td id="compData">0</td>
-						<td id="accessData">0</td>
-						<td id="iterationData">0</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</body>
-	<script src="bundle.js"></script>
+  <head>
+    <title>Sorting visualizer</title>
+    <meta name="viewport" content="width=device-width" />
+    <script
+      src="https://kit.fontawesome.com/0d6d078f29.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" href="./misc/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="./sass/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./sass/range.css" />
+    <link rel="stylesheet" type="text/css" href="./sass/responsive.css" />
+  </head>
+  <body>
+    <nav>
+      <div id="dropdown" class="hideNav">
+        <select id="sortingSelect">
+          <option value="bubble">Bubble sort</option>
+          <option value="insertion">Insertion sort</option>
+        </select>
+        <button id="newArr">Generate new array</button>
+        <div id="arrSize">
+          <p>Array size</p>
+          <div class="slider_and_text">
+            <input type="range" min="2" max="50" value="25" id="arrSlider" />
+            <span id="arrNumber">25</span>
+          </div>
+        </div>
+        <div id="sortSpeed">
+          <p>Sorting speed</p>
+          <div class="slider_and_text">
+            <input
+              type="range"
+              min="10"
+              max="200"
+              value="20"
+              id="speedSlider"
+            />
+            <span id="speedNumber">20ms</span>
+          </div>
+        </div>
+      </div>
+      <div id="res-menu">
+        <i class="fas fa-bars"></i>
+        <button id="sortNow">Sort</button>
+      </div>
+    </nav>
+    <div id="content">
+      <canvas width="1400" height="650"></canvas>
+      <div id="sortingData">
+        <table>
+          <tr>
+            <th>Comparisons</th>
+            <th>Array access</th>
+            <th>Iterations</th>
+          </tr>
+          <tr>
+            <td id="compData">0</td>
+            <td id="accessData">0</td>
+            <td id="iterationData">0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script src="bundle.js"></script>
 </html>

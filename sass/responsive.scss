@@ -13,6 +13,15 @@
 			color: white;
 		}
 
+		#res-menu {
+			position: relative;
+			z-index: 6;
+
+			button {
+				margin-left: 5vw;
+			}
+		}
+
 		#dropdown {
 			position: absolute;
 			flex-direction: column;
@@ -25,6 +34,7 @@
 			flex-direction: column;
 			align-items: center;
 			transition: all 0.25s ease-in-out;
+			z-index: 6;
 
 			> * {
 				margin-top: 5vw;
@@ -46,6 +56,11 @@
 	nav {
 		.fa-bars {
 			display: none;
+		}
+
+		button,
+		select {
+			margin-left: 1vw;
 		}
 
 		#dropdown {
