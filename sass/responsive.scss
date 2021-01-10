@@ -1,70 +1,76 @@
 @import "variables.scss";
 
 @media (max-width: 991px) {
-	html,
-	body {
-		height: 100%;
-		width: 100%;
-	}
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+  }
 
-	nav {
-		i {
-			display: flex;
-			color: white;
-		}
+  nav {
+    i {
+      display: flex;
+      color: white;
+    }
 
-		#res-menu {
-			position: relative;
-			z-index: 6;
+    #res-menu {
+      position: relative;
+      z-index: 6;
 
-			button {
-				margin-left: 5vw;
-			}
-		}
+      button {
+        margin-left: 5vw;
+      }
+    }
 
-		#dropdown {
-			position: absolute;
-			flex-direction: column;
-			left: 0;
-			top: 50px;
-			height: calc(100vh - 50px);
-			width: 100vw;
-			background: $nav-color;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			transition: all 0.25s ease-in-out;
-			z-index: 6;
+    #dropdown {
+      position: absolute;
+      flex-direction: column;
+      left: 0;
+      top: 50px;
+      height: calc(100vh - 50px);
+      width: 100vw;
+      background: $nav-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.25s ease-in-out;
+      z-index: 6;
 
-			> * {
-				margin-top: 5vw;
-			}
-		}
+      > * {
+        margin-top: 10vw;
+        font-size: 5vw;
+      }
+    }
 
-		.showNav {
-			transform: translateY(0);
-		}
+    .showNav {
+      transform: translateY(0);
+    }
 
-		.hideNav {
-			transform: translateY(-100vh);
-		}
-	}
+    .hideNav {
+      transform: translateY(-100vh);
+    }
+  }
 }
 
 // Laptops and up
 @media (min-width: 992px) {
-	nav {
-		.fa-bars {
-			display: none;
-		}
+  nav {
+    .fa-bars {
+      display: none;
+    }
 
-		button,
-		select {
-			margin-left: 1vw;
-		}
+    div > * {
+      margin-left: .5vw;
+    }
 
-		#dropdown {
-			display: flex;
-		}
-	}
+    button,
+    select {
+	  margin-left: 1vw;
+	  font-size: 1.25vw;
+    }
+
+    #dropdown {
+      display: flex;
+    }
+  }
 }
