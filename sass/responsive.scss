@@ -22,19 +22,22 @@
 			}
 		}
 
+    $nav-height: 65px;
+
 		#dropdown {
 			position: absolute;
 			flex-direction: column;
 			left: 0;
-			top: 50px;
-			height: calc(100vh - 65px);
+			top: $nav-height;
+			height: calc(100vh - 65px); // idk, using the variable breaks the page
       background: $nav-color;
       padding: 0 20px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			transition: all 0.25s ease-in-out;
-			z-index: 6;
+      z-index: 6;
+      background: #d84b4b;
 		}
 
 		.showNav {
@@ -44,7 +47,7 @@
 		.hideNav {
 			transform: translateX(-100vw);
 		}
-	}
+  }
 }
 
 // Laptops and up
@@ -67,7 +70,13 @@
 		#dropdown {
 			display: flex;
 		}
-	}
+  }
+  
+  table {
+    td, th {
+      font-size: 1vw;
+    }
+  }
 }
 
 /*
@@ -85,7 +94,16 @@
 			margin-top: 10vw;
 			font-size: 5vw;
 		}
-	}
+  }
+  
+  #content table {
+    width: 95vw;
+    font-size: 4vw;
+
+    th, td {
+      padding: 15px;
+    }
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -103,5 +121,19 @@
       margin-top: 5vw;
       font-size: 3.5vw;
     }
-	}
+  }
+  
+  table {
+    td, th {
+      font-size: 2vw;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  table {
+    td, th {
+      padding: 20px;
+    }
+  }
 }
