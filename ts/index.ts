@@ -4,6 +4,8 @@ import { createArray } from "./helpers"
 import { drawArray } from "./canvasHelpers";
 import insertionSort from "./sortingMethods/insertionSort";
 import { resizeCanvas } from "./responsive";
+import selectionSort from "./sortingMethods/selectionSort";
+import { clearHelpers } from "./dataHelpers";
 
 /* Canvas resize setup */
 
@@ -20,9 +22,10 @@ let selector = document.querySelector("#sortingSelect") as HTMLSelectElement;
 selector?.addEventListener("change", () => {
     if(selector.value === 'bubble')
         sortingMethod = bubbleSort;
-    else if(selector.value == 'insertion') {
+    else if(selector.value === 'insertion')
         sortingMethod = insertionSort;
-    }
+    else if(selector.value === "selection")
+        sortingMethod = selectionSort;
 })
 
 let speedSlider = document.querySelector("#speedSlider") as HTMLInputElement;
@@ -45,6 +48,7 @@ slider.addEventListener("input", () => {
 })
 
 document.querySelector("#newArr")?.addEventListener("click", () => {
+    clearHelpers();
     sortingMethod.clearActions();
     arr = createArray(Number(slider.value));
     drawArray(arr);
