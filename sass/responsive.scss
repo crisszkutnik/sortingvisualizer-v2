@@ -18,9 +18,7 @@
 			z-index: 6;
 
 			button {
-        margin-left: 5vw;
-        font-size: 3.75vw;
-        padding: 8px 14px;
+				margin-left: 5vw;
 			}
 		}
 
@@ -30,26 +28,21 @@
 			left: 0;
 			top: 50px;
 			height: calc(100vh - 65px);
-			width: 100vw;
-			background: $nav-color;
+      background: $nav-color;
+      padding: 0 20px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			transition: all 0.25s ease-in-out;
-      z-index: 6;
-
-			> * {
-				margin-top: 10vw;
-				font-size: 5vw;
-			}
+			z-index: 6;
 		}
 
 		.showNav {
-			transform: translateY(0);
+			transform: translateX(0);
 		}
 
 		.hideNav {
-			transform: translateY(-100vh);
+			transform: translateX(-100vw);
 		}
 	}
 }
@@ -74,5 +67,41 @@
 		#dropdown {
 			display: flex;
 		}
+	}
+}
+
+/*
+  Small adjustments
+*/
+
+@media (max-width: 767px) {
+	nav {
+		#res-menu button {
+			font-size: 4.5vw;
+			padding: 6px 14px;
+		}
+
+		#dropdown > * {
+			margin-top: 10vw;
+			font-size: 5vw;
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	nav {
+		.fa-bars {
+			font-size: 2.5vw;
+		}
+
+		#res-menu button {
+			font-size: 2.5vw;
+			padding: 10px 20px;
+    }
+    
+    #dropdown > * {
+      margin-top: 5vw;
+      font-size: 3.5vw;
+    }
 	}
 }
