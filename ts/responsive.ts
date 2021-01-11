@@ -3,7 +3,12 @@ import { canvas } from "./canvasHelpers"
 const resizeCanvas = () => {
 	let w = window.screen.width;
 
-	canvas.style.width = (w * 1400) / 1920 + 'px';
+	// If the device is small, let the canvas be almost all its width
+
+	if(w > 1000) 	
+		canvas.style.width = (w * 1400) / 1920 + 'px';
+	else
+		canvas.style.width = w * .95 + 'px';
 }
 
 window.addEventListener("resize", resizeCanvas);

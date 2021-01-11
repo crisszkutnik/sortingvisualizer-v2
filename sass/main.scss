@@ -13,7 +13,7 @@ body {
 
 nav {
 	background: $nav-color;
-	height: 50px;
+	height: 65px;
 	display: flex;
 	align-items: center;
 	padding-left: 5%;
@@ -22,10 +22,10 @@ nav {
 
 	button,
 	select {
+		padding: 6px 10px;
 		border: none;
 		background: $button-color;
 		box-sizing: content-box;
-		padding: 10px 15px;
 		color: white;
 		cursor: pointer;
 	}
