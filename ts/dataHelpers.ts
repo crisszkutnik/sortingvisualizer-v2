@@ -1,3 +1,5 @@
+import { Bar, movType, Movement } from "./models";
+
 class DataHelper {
 	private element;
 	private num;
@@ -27,9 +29,24 @@ const clearHelpers = () => {
 	accessHelper.resetNumber();
 }
 
+const generateMov = (arr: Bar[], index: number): Movement => {
+    return {
+        center1: arr[index].center,
+        value1: arr[index].value,
+        center2: arr[index + 1].center,
+        value2: arr[index + 1].value,
+        type: movType.comparison,
+        reset: false,
+        access: 0,
+        iteration: 0,
+        comp: 0
+    }
+}
+
 export {
 	compHelper,
 	accessHelper,
 	iterationHelper,
-	clearHelpers
+	clearHelpers,
+	generateMov
 }

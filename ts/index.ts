@@ -5,6 +5,7 @@ import { drawArray } from "./canvasHelpers";
 import insertionSort from "./sortingMethods/insertionSort";
 import { resizeCanvas } from "./responsive";
 import selectionSort from "./sortingMethods/selectionSort";
+import cocktailSort from "./sortingMethods/cocktailSort"
 import { clearHelpers } from "./dataHelpers";
 
 /* Canvas resize setup */
@@ -20,12 +21,23 @@ drawArray(arr);
 
 let selector = document.querySelector("#sortingSelect") as HTMLSelectElement;
 selector?.addEventListener("change", () => {
-    if(selector.value === 'bubble')
-        sortingMethod = bubbleSort;
-    else if(selector.value === 'insertion')
-        sortingMethod = insertionSort;
-    else if(selector.value === "selection")
-        sortingMethod = selectionSort;
+    switch(selector.value) {
+        case "bubble":
+            sortingMethod = bubbleSort;
+            break;
+
+        case "insertion":
+            sortingMethod = insertionSort;
+            break;
+
+        case "selection":
+            sortingMethod = selectionSort;
+            break;
+
+        case "cocktail":
+            sortingMethod = cocktailSort;
+            break;
+    }
 })
 
 let speedSlider = document.querySelector("#speedSlider") as HTMLInputElement;
