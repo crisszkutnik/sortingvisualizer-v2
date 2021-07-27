@@ -1,6 +1,6 @@
 import { ctx, colWidth } from "./canvasHelpers";
 import { accessHelper, compHelper, iterationHelper } from "./dataHelpers";
-import { colours } from "./helpers";
+import { colours, selectorManager } from "./helpers";
 
 interface Bar {
     value: number;
@@ -30,20 +30,14 @@ abstract class SortingMethod {
 
     abstract sort(arr: Bar[]): Bar[];
 
-    enableSelector() {
-        let selector = document.querySelector("#sortingSelect") as HTMLSelectElement;
-        let speedSelector = document.querySelector("#speedSlider") as HTMLInputElement;
-        selector.disabled = false;
-        speedSelector.disabled = false;
-    }
-
     clearActions() {
         this.movements = [];
         clearInterval(this.interval);
-        this.enableSelector();
+        selectorManager.enableSelectors();
     }
 
     drawMovements(speed:number) {
+        selectorManager.disableSelectors();
         let arr = this.movements;
         let i = 0;
         this.movements = [];
@@ -74,7 +68,7 @@ abstract class SortingMethod {
 
             }, speed)
         })
-        .then(this.enableSelector)
+        .then(selectorManager.enableSelectors)
     }
 
     private drawComparison(mov: Movement, colour: string) {

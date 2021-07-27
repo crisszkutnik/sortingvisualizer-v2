@@ -30,6 +30,10 @@ nav {
 		cursor: pointer;
 	}
 
+	button:disabled, button[disabled], select:disabled, select[disabled] {
+		opacity: 0.8;
+	}
+
 	#dropdown {
 		display: flex;
 

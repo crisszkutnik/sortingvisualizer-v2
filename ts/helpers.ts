@@ -26,7 +26,27 @@ let colours = {
     red:`rgba(235, 68, 68, ${alpha})`
 }
 
+const selectorManager = {
+    selector: document.querySelector("#sortingSelect") as HTMLSelectElement,
+    speedSelector: document.querySelector("#speedSlider") as HTMLInputElement,
+    slider: document.querySelector("#arrSlider") as HTMLInputElement,
+    btn: document.querySelector("#sortNow") as HTMLInputElement,
+    enableSelectors: function() {
+        this.selector.disabled = false;
+        this.speedSelector.disabled = false;
+        this.slider.disabled = false;
+        this.btn.disabled = false;
+    },
+    disableSelectors: function() {
+        this.selector.disabled = true;
+        this.speedSelector.disabled = true;
+        this.slider.disabled = true;
+        this.btn.disabled = true;
+    }
+}
+
 export {
     createArray,
-    colours
+    colours,
+    selectorManager
 };

@@ -7,6 +7,7 @@ import { resizeCanvas } from "./responsive";
 import selectionSort from "./sortingMethods/selectionSort";
 import cocktailSort from "./sortingMethods/cocktailSort"
 import { clearHelpers } from "./dataHelpers";
+import { createSolutionBuilder } from "typescript";
 
 /* Canvas resize setup */
 
@@ -67,8 +68,6 @@ document.querySelector("#newArr")?.addEventListener("click", () => {
 })
 
 document.querySelector("#sortNow")?.addEventListener("click", () => {
-    selector.disabled = true;
-    speedSlider.disabled = true;
     arr = sortingMethod.sort(arr);
     sortingMethod.drawMovements(sortingSpeed);
 })
