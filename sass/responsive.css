@@ -1,0 +1,109 @@
+@media (max-width: 991px) {
+  html,
+body {
+    height: 100%;
+    width: 100%;
+  }
+
+  nav i {
+    display: flex;
+    color: white;
+  }
+  nav #res-menu {
+    position: relative;
+    z-index: 6;
+  }
+  nav #res-menu button {
+    margin-left: 5vw;
+  }
+  nav #dropdown {
+    position: absolute;
+    flex-direction: column;
+    left: 0;
+    top: 65px;
+    height: calc(100vh - 65px);
+    background: #f05454;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.25s ease-in-out;
+    z-index: 6;
+    background: #d84b4b;
+  }
+  nav .showNav {
+    transform: translateX(0);
+  }
+  nav .hideNav {
+    transform: translateX(-100vw);
+  }
+}
+@media (min-width: 992px) {
+  nav .fa-bars {
+    display: none;
+  }
+  nav div > * {
+    margin-left: 0.5vw;
+  }
+  nav button,
+nav select {
+    margin-left: 1vw;
+    font-size: 1vw;
+  }
+  nav #dropdown {
+    display: flex;
+  }
+
+  table td,
+table th {
+    font-size: 1vw;
+  }
+}
+/*
+  Small adjustments
+*/
+@media (max-width: 767px) {
+  nav #res-menu button {
+    font-size: 4.5vw;
+    padding: 6px 14px;
+  }
+  nav #dropdown > * {
+    margin-top: 10vw;
+    font-size: 5vw;
+  }
+
+  #content table {
+    width: 95vw;
+    font-size: 4vw;
+  }
+  #content table th,
+#content table td {
+    padding: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  nav .fa-bars {
+    font-size: 2.5vw;
+  }
+  nav #res-menu button {
+    font-size: 2.5vw;
+    padding: 10px 20px;
+  }
+  nav #dropdown > * {
+    margin-top: 5vw;
+    font-size: 3.5vw;
+  }
+
+  table td,
+table th {
+    font-size: 2vw;
+  }
+}
+@media (min-width: 768px) {
+  table td,
+table th {
+    padding: 20px;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */

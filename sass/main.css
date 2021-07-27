@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  background: #222831;
+}
+
+nav {
+  background: #f05454;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+  width: 100vw;
+  position: relative;
+}
+nav button,
+nav select {
+  padding: 6px 10px;
+  border: none;
+  background: #30475e;
+  box-sizing: content-box;
+  color: white;
+  cursor: pointer;
+}
+nav button:disabled, nav button[disabled], nav select:disabled, nav select[disabled] {
+  opacity: 0.8;
+}
+nav #dropdown {
+  display: flex;
+}
+nav #dropdown .slider_and_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+nav #arrSize,
+nav #sortSpeed {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+nav #arrSize div,
+nav #sortSpeed div {
+  display: flex;
+}
+nav #arrSize div span,
+nav #sortSpeed div span {
+  padding-left: 10px;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5vh;
+  width: 100vw;
+  position: relative;
+  z-index: 0;
+}
+#content table {
+  color: white;
+  background: #30475e;
+  border-radius: 5px;
+  margin-top: 2vh;
+}
+#content table th,
+#content table td {
+  text-align: center;
+}
+
+/*# sourceMappingURL=main.css.map */
